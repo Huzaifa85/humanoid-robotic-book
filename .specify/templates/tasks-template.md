@@ -44,6 +44,19 @@ description: "Task list template for feature implementation"
   ============================================================================
 -->
 
+## Phase 0: Constitutional Alignment
+
+**Purpose**: Ensure all planned work aligns with project principles before starting.
+
+- [ ] Review **I. Beginner-Centric Pedagogy**: Are tasks designed to produce clear, simple, and educational content?
+- [ ] Review **II. Project-Driven Learning**: Does the task breakdown support a hands-on, project-based deliverable?
+- [ ] Review **III. Comprehensive Toolchain Mastery**: Are the tasks using the approved project toolchain correctly?
+- [ ] Review **IV. Integrated VLA Systems**: Do the tasks contribute to a cohesive VLA system?
+- [ ] Review **V. Modular and Extensible Design**: Is the work planned in a modular, extensible way?
+- [ ] Review **VI. Capstone-Oriented Structure**: Does this work build towards the final capstone?
+
+---
+
 ## Phase 1: Setup (Shared Infrastructure)
 
 **Purpose**: Project initialization and basic structure

@@ -31,7 +31,12 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- [ ] **I. Beginner-Centric Pedagogy**: Does the plan prioritize clarity, simplicity, and accessibility for beginners?
+- [ ] **II. Project-Driven Learning**: Is the feature structured as a practical, hands-on project?
+- [ ] **III. Comprehensive Toolchain Mastery**: Does the plan correctly utilize and teach the core project toolchain (ROS 2, Isaac Sim, etc.)?
+- [ ] **IV. Integrated VLA Systems**: Does the design account for the integration of vision, language, and action components?
+- [ ] **V. Modular and Extensible Design**: Is the proposed architecture modular and designed for future extension (RAG, translation, etc.)?
+- [ ] **VI. Capstone-Oriented Structure**: Does this feature align with and build towards the final capstone project?
 
 ## Project Structure
 
