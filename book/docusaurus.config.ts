@@ -2,9 +2,6 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
-// ❌ REMOVE THIS — it was causing crash
-// import '../css/custom.css';
-
 const config: Config = {
   title: 'Physical AI & Humanoid Robotics',
   favicon: 'img/pic2.png',
@@ -13,8 +10,11 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://your-docusaurus-site.example.com',
-  baseUrl: '/humanoid-robotics-book/',
+  // ⭐ MUST FIX FOR VERCEL (CORRECT URL)
+  url: 'https://humanoid-robotics-book-c8pg.vercel.app',
+
+  // ⭐ MUST FIX FOR SUB-PATH DEPLOYMENT
+  baseUrl: '/',
 
   organizationName: 'laibagohar',
   projectName: 'humanoid-robotics-book',
@@ -32,11 +32,9 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
-          // ✅ Correct CSS path (KEEP THIS)
+          // ⭐ Correct CSS import
           customCss: require.resolve('./src/css/custom.css'),
         },
       } satisfies Preset.Options,
@@ -49,12 +47,6 @@ const config: Config = {
     colorMode: {
       respectPrefersColorScheme: true,
       defaultMode: 'dark',
-    },
-
-    palette: {
-      primary: '#eab308',
-      primaryDark: '#c48e06',
-      primaryLight: '#facc15',
     },
 
     navbar: {
@@ -74,7 +66,7 @@ const config: Config = {
         { to: '/docs/contact', label: 'Contact', position: 'left' },
 
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/laibagohar923/humanoid-robotics-book',
           label: 'GitHub',
           position: 'right',
         },
@@ -90,7 +82,7 @@ const config: Config = {
             { label: 'All Modules', to: '/docs/modules/module1/' },
             {
               label: 'GitHub Repository',
-              href: 'https://github.com/laibagohar/humanoid-robotics-book',
+              href: 'https://github.com/laibagohar923/humanoid-robotics-book',
             },
           ],
         },
