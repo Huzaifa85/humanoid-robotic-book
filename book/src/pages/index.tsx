@@ -1,505 +1,73 @@
-import React from "react";
-import Link from "@docusaurus/Link";
+import React, { JSX, useState } from "react";
+
 import Layout from "@theme/Layout";
- import '../css/custom.css';
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Link from "@docusaurus/Link";
 
-function HomepageHeader() {
-  const { siteConfig } = useDocusaurusContext();
 
+
+export default function Home(): JSX.Element {
   return (
-    <>
-      <style>{`
-/* -------------------------------------- */
-/* NAVBAR STYLING */
-/* -------------------------------------- */
-.navbar {
-  background: #ffffff !important;
-  color: #000 !important;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.navbar__brand .navbar__title {
-  color: #000 !important;
-}
-
-.navbar__brand:hover .navbar__title {
-  color: #eab308 !important;
-}
-
-.navbar__link {
-  color: #000 !important;
-  font-weight: 600;
-}
-
-.navbar__link:hover {
-  color: #eab308 !important;
-  background: rgba(234, 179, 8, 0.15) !important;
-  border-radius: 6px;
-  transition: 0.25s ease-in-out;
-}
-
-.navbar__link--active {
-  color: #eab308 !important;
-}
-
-.navbar__item svg,
-.navbar__item button svg {
-  fill: #000 !important;
-}
-
-/* -------------------------------------- */
-/* HERO SECTION */
-/* -------------------------------------- */
-
-.heroSection {
-  background: #000;
-  padding: 120px 20px;
-  color: white;
-}
-
-.heroContainer {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.heroText {
-  flex: 1;
-  min-width: 300px;
-}
-
-.heroTitle {
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.heroSubtitle {
-  font-size: 1.25rem;
-  opacity: 0.85;
-  margin-top: 15px;
-  line-height: 1.6;
-  max-width: 600px;
-}
-
-.heroButton {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 14px 32px;
-  background: #facc15;
-  color: #000;
-  border-radius: 8px;
-  font-weight: 700;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: 0.2s;
-}
-
-.heroButton:hover {
-  background: #eab308;
-}
-
-/* Hero fade + slide animation */
-@keyframes heroFadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Apply animation to h1 */
-.heroTitle {
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.3;
-  animation: heroFadeUp 0.9s ease-out forwards;
-}
-
-/* Apply animation to paragraph */
-.heroSubtitle {
-  font-size: 1.25rem;
-  opacity: 0.85;
-  margin-top: 15px;
-  line-height: 1.6;
-  max-width: 600px;
-  animation: heroFadeUp 1.2s ease-out forwards; /* slower for nice delay */
-}
-
-
-.robotImage {
-  flex: 1;
-  min-width: 600px;
-  max-width: 600px;
-  border-radius: 12px;
-}
-
-/* -------------------------------------- */
-/* WHITE SECTION */
-/* -------------------------------------- */
-
-/* Fade-in animation */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Animated heading */
-.whiteHeading {
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: #000;
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  animation: fadeInUp 0.8s ease forwards;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-/* Hover: yellow + slight lift */
-.whiteHeading:hover {
-  color: #eab308;
-  transform: translateY(-4px);
-}
-
-/* Underline animation */
-.whiteHeading::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0%;
-  height: 3px;
-  background: #eab308;
-  transition: width 0.3s ease;
-}
-
-.whiteHeading:hover::after {
-  width: 100%;
-}
-
-/* Paragraph styling */
-.whiteSectionParagraph {
-  color: #000000ff !important;
-  opacity: 1 !important;
-}
-
-/* MODULES SECTION */
-.modulesSection {
-  background: #ffffff;
-  padding: 60px 20px;
-  text-align: center;
-}
-
-/* GRID */
-.modulesGrid {
-  max-width: 1200px;
-  margin: 40px auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-  color: #fff;
-}
-
-/* CARD BASE STYLE */
-.moduleCard {
-  background: #ffffffff;
-  padding: 25px;
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(234, 179, 8, 0.25); /* soft yellow shadow */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: fadeInUp 0.7s ease forwards;
-  border: 1px solid rgba(234, 179, 8, 0.15);
-  color: #fff;
-  border: 1px solid #eab308;
-}
-
-/* HOVER EFFECT */
-.moduleCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45); /* stronger yellow glow */
-  
-}
-
-/* TITLE */
-.moduleCard h3 {
-  font-size: 1.25rem;
-  margin-bottom: 10px;
-  font-weight: 700;
-  color: #000000ff;
-}
-
-/* TEXT */
-.moduleCard p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: black;
-  opacity: 0.85;
-  font: bold;
-}
-
-/* CLEAN BUTTON */
-.moduleButton {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 14px 26px;
-  font-weight: 600;
-  border-radius: 10px;
-  text-decoration: none;
-  color: #000;
-
-  /* Soft elegant gradient */
-  background: linear-gradient(135deg, #facc15, #f7d94c);
-
-  transition: 
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.35s ease;
-}
-
-/* HOVER: clean lift + soft black shadow */
-.moduleButton:hover {
-  transform: translateY(-4px);
-  background: linear-gradient(135deg, #eab308, #f4c900);
-
-  /* Premium soft shadow – NOT yellow */
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-}
-
-/* Fade animation */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ============================== */
-/* WHY SECTION (3 BOXES) */
-/* ============================== */
-
-.whySection {
-  background: #ffffff;
-  padding: 80px 20px;
-  text-align: center;
-}
-
-.whyHeading {
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: #000;
-  margin-bottom: 40px;
-  position: relative;
-  display: inline-block;
-  transition: 0.3s ease;
-}
-
-.whyHeading:hover {
-  color: #eab308;
-  transform: translateY(-4px);
-}
-
-.whyGrid {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-}
-
-.whyCard {
-  background: #ffffffff;
-  padding: 9px;
-  border-radius: 30px;
-  text-align: left;
-  transition: 0.3s ease;
-  border: 1px solid #eab308;
-}
-
-.whyCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 28px rgba(0, 0, 0, 0.45); /* dark yellow shadow */
-}
-
-.whyCard h3 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 12px;
-  color:black;
-}
-
-.whyCard p {
-  font-size: 1.05rem;
-  color: #000000ff;
-  line-height: 1.7;
-}
-
-/* ICONS */
-.whyIcon {
-  font-size: 40px;
-  color: #eab308;
-  margin-bottom: 15px;
-  display: block;
-}
-
-/* Heading Underline Animation */
-.whyHeading {
-  position: relative;
-}
-
-.whyHeading::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -12px;
-  width: 0;
-  height: 4px;
-  background: #eab308;
-  transform: translateX(-50%);
-  transition: width 0.35s ease;
-}
-
-.whyHeading:hover::after {
-  width: 80%;
-}
-
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .whyCard {
-    padding: 22px;
-  }
-  .whyHeading {
-    font-size: 2rem;
-  }
-}
-
-
-
-
-      `}</style>
-
-
-
-
-
-
-
-
-
-      {/* HERO SECTION */}
-      <header className="heroSection">
-        <div className="heroContainer">
-          <div className="heroText">
-            <h1 className="heroTitle">Physical AI & Humanoid Robotics Textbook</h1>
-
-            <p className="heroSubtitle">
-              Master humanoid robotics, ROS 2, simulation, NVIDIA Isaac, VLA
-              systems, and embodied AI to build next-generation intelligent
-              machines.
-            </p>
-
-            <Link className="heroButton" to="/docs/modules/module1/">
-              Start Reading →
-            </Link>
-          </div>
-
-          {/* FIXED IMAGE PATH */}
-          <img
-            src="img/pic1.jpeg"
-            alt="Humanoid Robot"
-            className="robotImage"
-          />
+    <Layout title="Humanoid Robotics Textbook">
+      {/* HERO */}
+      <section className="hero">
+        <div className="heroText">
+          <h1>
+            Physical AI & <br />
+            <span className="robotLine">
+              Humanoid Robotics <span className="robotIcon">🤖</span>
+            </span>
+          </h1>
+
+          <p>
+            Master humanoid robotics, ROS 2, simulation, NVIDIA Isaac, VLA
+            systems, and embodied AI to build next-generation intelligent
+            machines.
+          </p>
+
+          <Link to="/Humanoid-textbook/docs/module1/intro" className="primaryBtn">
+            Start Reading →
+          </Link>
         </div>
-      </header>
 
-      {/* WHITE SECTION */}
-      <section
-        style={{
-          background: "#ffffff",
-          padding: "80px 20px",
-          textAlign: "center",
-        }}
-      >
-        <h2 className="whiteHeading">What This Textbook Covers</h2>
-
-        <p
-          className="whiteSectionParagraph"
-          style={{
-            fontSize: "1.2rem",
-            maxWidth: "800px",
-            margin: "20px auto 0",
-            lineHeight: "1.8",
-            textAlign: "center",
-            fontWeight: 400,
-          }}
-        >
-          This is a complete AI-native engineering curriculum designed for
-          physical AI, humanoid robots, embodied intelligence, ROS 2 programming,
-          digital-twin simulations, and Vision-Language-Action (VLA) systems.
-          Each module builds your robotics superpowers step by step.
-        </p>
+        <div className="heroImage">
+          <img src="img/img1.png" alt="Humanoid Robot" />
+        </div>
       </section>
 
-      {/* <section className="modulesSection">
-  <h2 className="whiteHeading">Explore All Modules</h2>
+      <section className="whySection">
+        <h2>
+          Built for the Next Generation <br></br>of Intelligent Robots
+        </h2>
 
-  <div className="modulesGrid">
+        <div className="whyGrid">
+          <div className="whyCard">
+            <h3>🚀 Robotics-First Learning</h3>
+            <p>
+              Designed specifically for humanoid and physical AI systems —
+              covering control, perception, planning, and real-world robot
+              behavior from day one.
+            </p>
+          </div>
 
-    <div className="moduleCard">
-      <h3>Module 1: ROS 2 Foundations</h3>
-      <p>Learn ROS 2: nodes, topics, services, actions, QoS, and complete robot workflows.</p>
-      <a href="/humanoid-robotics-book/docs/modules/module1/intro.md" className="moduleButton">Open Module →</a>
-    </div>
+          <div className="whyCard">
+            <h3>🧠 AI Meets the Physical World</h3>
+            <p>
+              Learn how modern AI models connect with sensors, actuators,
+              simulators, and robots to create intelligent, embodied machines.
+            </p>
+          </div>
 
-    <div className="moduleCard">
-      <h3>Module 2: Simulation & Digital Twins</h3>
-      <p>Master Gazebo, Unity Robotics, Isaac Sim, and robotic digital-twin training pipelines.</p>
-      <a href="/humanoid-robotics-book/docs/modules/module2/intro" className="moduleButton">Open Module →</a>
-    </div>
-
-    <div className="moduleCard">
-      <h3>Module 3: Hardware Foundations</h3>
-      <p>Motors, actuators, torque control, sensors, microcontrollers — essential robotics hardware.</p>
-      <a href="docs/modules/module3/intro.md" className="moduleButton">Open Module →</a>
-    </div>
-
-    <div className="moduleCard">
-      <h3>Module 4: VLA — Vision, Language & Action</h3>
-      <p>Advanced robotics AI: perception, LLM-control, action planners, and embodied intelligence.</p>
-      <a href="/humanoid-robotics-book/docs/modules/module4/" className="moduleButton">Open Module →</a>
-    </div>
-
-    <div className="moduleCard">
-      <h3>Module 5: Advanced AI & Motion Control</h3>
-      <p>Reinforcement learning, MPC, motion planning, and intelligent robot movement.</p>
-      <a href="/humanoid-robotics-book/docs/modules/module5/" className="moduleButton">Open Module →</a>
-    </div>
-
-    <div className="moduleCard">
-      <h3>Module 6: Designing Humanoid Robots</h3>
-      <p>Kinematics, actuation, morphologies, energy systems, and humanoid robot movement.</p>
-      <a href="/humanoid-robotics-book/docs/modules/module6/" className="moduleButton">Open Module →</a>
-    </div>
-  </div>
-</section> */}
+          <div className="whyCard">
+            <h3>⚙️ Industry-Ready Skill Path</h3>
+            <p>
+              Curriculum aligned with real robotics stacks used in humanoid
+              labs, startups, and research teams — preparing you for production
+              systems.
+            </p>
+          </div>
+         
+        </div>
+      </section>
 
 
 <section className="modulesSection">
@@ -554,55 +122,429 @@ function HomepageHeader() {
 
 
 
-{/* WHY THIS TEXTBOOK SECTION */}
-<section className="whySection">
-  <h2 className="whyHeading">Built for AI-Powered Robotics <br></br> Intelligent Systems</h2>
-
-  <div className="whyGrid">
-
-    <div className="whyCard">
-      <span className="whyIcon">🤖</span>
-      <h3>Engineered for Modern Robotics</h3>
-      <p>
-        This textbook is built around real humanoid robotics workflows —
-        covering sensing, control, AI reasoning, VLA pipelines, and intelligent
-        robot behavior used in next-generation systems.
-      </p>
-    </div>
-
-    <div className="whyCard">
-      <span className="whyIcon">🛠️</span>
-      <h3>Learn by Building Real Systems</h3>
-      <p>
-        Each module includes hands-on coding, simulations, engineering tasks,
-        and practical robotic scenarios so you develop actual industry-ready
-        robotics skills step by step.
-      </p>
-    </div>
-
-    <div className="whyCard">
-      <span className="whyIcon">🏭</span>
-      <h3>Aligned with Industry Standards</h3>
-      <p>
-        The curriculum follows robotics stacks used by leading teams such as
-        Tesla, Figure, Apptronik, and Sanctuary AI — ensuring you learn
-        technologies shaping the future of humanoid machines.
-      </p>
-    </div>
-
-  </div>
-</section>
 
 
+      {/* css code */}
 
-    </>
-  );
+      <style>{`
+        * {
+          box-sizing: border-box;
+        }
+
+        /* ===== PAGE BACKGROUND (SAME AS IMAGE SIDE) ===== */
+        html,
+        body,
+        #__docusaurus,
+        .main-wrapper {
+          background-color: #f6f7f9 !important;
+        }
+
+        body {
+          margin: 0;
+          font-family: Inter, system-ui, sans-serif;
+          color: #0f172a;
+        }
+
+      /* ===== PAGE BACKGROUND ===== */
+html,
+     body,
+#__docusaurus,
+.main-wrapper {
+  background: #f6f7f9 !important;
 }
 
-export default function Home() {
-  return (
-    <Layout title="Physical AI Textbook" description="Physical AI textbook">
-      <HomepageHeader />
+/* ===== HERO WRAPPER (ONE SINGLE CARD) ===== */
+.hero {
+  min-height: 90vh;
+  padding: 100px 80px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
+
+  background: #eaf4ff;        /* 🔥 SAME BG FOR TEXT + IMAGE */
+  border-radius: 36px;
+  box-shadow: 0 40px 80px rgba(15, 23, 42, 0.12);
+}
+
+/* ===== TEXT SIDE (NO EXTRA BG) ===== */
+.heroText {
+  background: transparent;    /* ❗ important */
+  padding: 0;
+}
+
+/* ===== IMAGE SIDE (NO EXTRA BG) ===== */
+.heroImage {
+  background: transparent;    /* ❗ important */
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroImage img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 28px;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.35);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+
+    opacity: 0;
+  transform: translateY(20px);
+  animation: textReveal 0.9s ease-out forwards;
+  animation-delay: 0.25s;
+  box-shadow:
+    0 20px 45px rgba(56, 189, 248, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+/* ===== TEXT ===== */
+.heroText h1 {
+  font-size: 3.6rem;
+  font-weight: 900;
+  line-height: 1.15;
+  color: #0f172a;
+
+  /* entry animation (already yours) */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: headingReveal 0.9s ease-out forwards;
+
+  /* hover setup */
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+
+/* 🔹 hover effects */
+.heroText h1:hover {
+  color: #0ea5e9;
+}
+
+.heroText h1:hover::after {
+  width: 100%;
+}
+
+/* entry animation */
+@keyframes headingReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.heroText p {
+  margin-top: 24px;
+  max-width: 520px;
+  font-size: 1.05rem;
+  color: #475569;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: textReveal 0.9s ease-out forwards;
+  animation-delay: 0.25s;
+}
+
+/* Animations */
+@keyframes headingReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes textReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ===== BUTTON ===== */
+.primaryBtn {
+  display: inline-block;
+  margin-top: 36px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #13306eff, #0f172a);
+  color: white;
+  font-weight: 700;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: 0.3s;
+
+    opacity: 0;
+  transform: translateY(20px);
+  animation: textReveal 0.9s ease-out forwards;
+  animation-delay: 0.25s;
+  
+}
+
+.primaryBtn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(37,99,235,0.3);
+}
+
+/* ===== WHY SECTION ===== */
+
+
+
+.whySection {
+  padding: 100px 80px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.whySection h2:hover {
+  color: #0ea5e9;
+}
+
+.heroText h1:hover::after {
+  width: 100%;
+}
+.whySection h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 60px;
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+
+  background: linear-gradient(
+    135deg,
+    #eaf4ff 0%,
+    #f2f8ff 50%,
+    #eaf4ff 100%
+  );
+
+  padding: 64px;
+  border-radius: 48px;
+
+  /* 🔥 SOFTER & CLEAN SHADOW */
+  box-shadow:
+    0 20px 45px rgba(56, 189, 248, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.whyGrid > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* CARD */
+.whyCard {
+  background: linear-gradient(180deg, #f8fafc, #ffffff);
+  padding: 36px 32px;
+  border-radius: 22px;
+  text-align: left;
+
+  box-shadow:
+    0 12px 30px rgba(15, 23, 42, 0.08);
+
+  transition: 
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* HOVER EFFECT */
+.whyCard:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 30px 70px rgba(37, 99, 235, 0.18);
+}
+
+/* TITLE */
+.whyCard h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #020617;
+  margin-bottom: 14px;
+}
+
+/* TEXT */
+.whyCard p {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #475569;
+}
+
+.whyCard {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 32px;
+
+  /* ✅ SKY BLUE BORDER */
+  border: 1.5px solid #7dd3fc;
+
+  /* existing shadow */
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ✅ HOVER EFFECT (as it is / better) */
+.whyCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(56, 189, 248, 0.35);
+}
+
+
+.modulesSection {
+  padding: 100px 80px;
+  text-align: center;
+}
+
+.modulesHeading {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 50px;
+}
+
+.modulesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+
+
+
+
+
+/* ===== MODULES SECTION ===== */
+.modulesSection {
+  padding: 100px 80px;
+  background: #f6f7f9;
+  text-align: center;
+}
+
+/* HEADING */
+.whiteHeading {
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 64px;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+/* hover on heading */
+.whiteHeading:hover {
+  color: #0ea5e9; /* sky blue */
+}
+
+
+/* GRID */
+.modulesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 36px;
+}
+
+/* MODULE CARD */
+.moduleCard {
+  background: #ffffff;
+  padding: 36px 32px;
+  border-radius: 26px;
+  text-align: left;
+
+  /* SKY BLUE BORDER */
+  border: 1.5px solid #7dd3fc;
+
+  /* SOFT DEFAULT SHADOW */
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+
+  transition: 
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+/* HOVER EFFECT */
+.moduleCard:hover {
+  transform: translateY(-10px);
+  border-color: #38bdf8;
+  box-shadow: 0 40px 80px rgba(56, 189, 248, 0.35);
+}
+
+/* TITLE */
+.moduleCard h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #020617;
+  margin-bottom: 14px;
+}
+
+/* DESCRIPTION */
+.moduleCard p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #475569;
+  margin-bottom: 26px;
+}
+
+/* BUTTON */
+.moduleButton {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #13306eff, #0f172a);
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition: 
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* BUTTON HOVER */
+.moduleButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(14, 165, 233, 0.45);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .modulesSection {
+    padding: 80px 32px;
+  }
+
+  .whiteHeading {
+    font-size: 2.1rem;
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 60px 32px;
+  }
+
+  .heroText h1 {
+    font-size: 2.4rem;
+  }
+}
+
+      `}</style>
     </Layout>
   );
 }

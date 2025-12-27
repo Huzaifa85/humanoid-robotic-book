@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Physical AI & Humanoid Robotics',
-  favicon: 'img/pic2.png',
+  favicon: 'img/img1.png',
 
   future: {
     v4: true,
@@ -53,7 +53,7 @@ const config: Config = {
       title: 'Humanoid Robotics',
       logo: {
         alt: 'Logo',
-        src: 'img/pic2.png',
+        src: 'img/img1.png',
       },
       items: [
         {
@@ -62,11 +62,10 @@ const config: Config = {
           position: 'left',
           label: 'Modules',
         },
-        { to: '/docs/about', label: 'About', position: 'left' },
-        { to: '/docs/contact', label: 'Contact', position: 'left' },
+     
 
         {
-          href: 'https://github.com/laibagohar923/humanoid-robotics-book',
+          href: 'https://github.com/Huzaifa85',
           label: 'GitHub',
           position: 'right',
         },
@@ -82,7 +81,7 @@ const config: Config = {
             { label: 'All Modules', to: '/docs/modules/module1/' },
             {
               label: 'GitHub Repository',
-              href: 'https://github.com/laibagohar923/humanoid-robotics-book',
+              href: 'https://github.com/Huzaifa85',
             },
           ],
         },
@@ -100,7 +99,7 @@ const config: Config = {
       ],
       copyright: `
         <div style="text-align:center; padding-top:10px; color:#000;">
-          © ${new Date().getFullYear()} Humanoid Robotics Textbook — Built by Laiba Gohar
+          © ${new Date().getFullYear()} Humanoid Robotics Textbook — Built by huzaifa zubair
           <br/>
           <span style="color:#eab308;">Powered by Docusaurus</span>
         </div>
